@@ -98,20 +98,15 @@ const getPasswordOptions = {
     if (isNaN(length)) {
       // alert and restart if it's not a number
       alert(`That Was Not a Number`);
-      getPasswordOptions.getLength();
     } else if (length === "") {
-      // alert and restart if it's not a number
+      // alert and restart if there's no input
       alert(`No input`);
-      getPasswordOptions.getLength();
     } else if (length < 8) {
       // alert and restart if it's too short
       alert(`Password Length Too Short`);
-      getPasswordOptions.getLength();
-      // alert and restart if it's too short
     } else if (length > 128) {
+      // alert and restart if it's too long
       alert(`Password Length Too Long`);
-      getPasswordOptions.getLength();
-      // alert and restart if it's too short
     } else {
       // return the user input if validated
       return length;
@@ -138,6 +133,11 @@ getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 generatePassword = () => {
   // Get length from getPasswordOptions Object
   const length = getPasswordOptions.getLength();
+
+  //return message to user if undefined
+  if (length === undefined) {
+    return "Press Generate Password To Start Again";
+  }
 
   // Create an empty array to hold potential characters
   const charArray = [];
