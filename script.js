@@ -91,7 +91,6 @@ var upperCasedCharacters = [
 // Object of functions to prompt user for password options
 const getPasswordOptions = {
   getLength: () => {
-    console.log("GETTING LENGTH");
     let length = prompt(
       // Prompt the user for length of password
       "What length of password do you require? Choose between 8-128"
