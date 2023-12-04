@@ -91,6 +91,7 @@ var upperCasedCharacters = [
 // Object of functions to prompt user for password options
 const getPasswordOptions = {
   getLength: () => {
+    console.log("GETTING LENGTH");
     let length = prompt(
       // Prompt the user for length of password
       "What length of password do you require? Choose between 8-128"
@@ -98,15 +99,19 @@ const getPasswordOptions = {
     if (isNaN(length)) {
       // alert and restart if it's not a number
       alert(`That Was Not a Number`);
-      this.getLength();
+      getPasswordOptions.getLength();
+    } else if (length === "") {
+      // alert and restart if it's not a number
+      alert(`No input`);
+      getPasswordOptions.getLength();
     } else if (length < 8) {
       // alert and restart if it's too short
       alert(`Password Length Too Short`);
-      this.getLength();
+      getPasswordOptions.getLength();
       // alert and restart if it's too short
     } else if (length > 128) {
       alert(`Password Length Too Long`);
-      this.getLength();
+      getPasswordOptions.getLength();
       // alert and restart if it's too short
     } else {
       // return the user input if validated
