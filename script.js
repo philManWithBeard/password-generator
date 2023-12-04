@@ -163,8 +163,8 @@ generatePassword = () => {
   }
 
   // Handle no characters selected
-  if (charArray === undefined) {
-    alert("No characters selected");
+  if (charArray.length === 0) {
+    alert("You need to select at least one type of character");
     return;
   }
 
