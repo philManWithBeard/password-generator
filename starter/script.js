@@ -113,10 +113,22 @@ const getPasswordOptions = {
       return length;
     }
   },
+  // Prompt user to choose lowercase characters
+  getLowercase: () =>
+    confirm("Do you want lowercase characters? Cancel = No, OK = Yes"),
+  // Prompt user to choose uppercase characters
+  getUppercase: () =>
+    confirm("Do you want uppercase characters? Cancel = No, OK = Yes"),
+  // Prompt user to choose numeric characters
+  getNumeric: () =>
+    confirm("Do you want numeric characters? Cancel = No, OK = Yes"),
+  // Prompt user to choose special characters
+  getSpecChar: () =>
+    confirm("Do you want special characters? Cancel = No, OK = Yes"),
 };
 
 // Function for getting a random element from an array
-function getRandom(arr) {}
+getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // Function to generate password with user input
 function generatePassword() {}
