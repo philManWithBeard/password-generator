@@ -134,9 +134,9 @@ generatePassword = () => {
   // Get length from getPasswordOptions Object
   const length = getPasswordOptions.getLength();
 
-  //return message to user if undefined
+  //return undefined if undefined
   if (length === undefined) {
-    return "Press Generate Password To Start Again";
+    return;
   }
 
   // Create an empty array to hold potential characters
@@ -179,9 +179,14 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  // start again if undefined
+  if (password === undefined) {
+    writePassword();
+  } else {
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
