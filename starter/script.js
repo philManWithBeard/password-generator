@@ -88,8 +88,32 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-// Function to prompt user for password options
-function getPasswordOptions() {}
+// Object of functions to prompt user for password options
+const getPasswordOptions = {
+  getLength: () => {
+    let length = prompt(
+      // Prompt the user for length of password
+      "What length of password do you require? Choose between 8-128"
+    );
+    if (isNaN(length)) {
+      // alert and restart if it's not a number
+      alert(`That Was Not a Number`);
+      this.getLength();
+    } else if (length < 8) {
+      // alert and restart if it's too short
+      alert(`Password Length Too Short`);
+      this.getLength();
+      // alert and restart if it's too short
+    } else if (length > 128) {
+      alert(`Password Length Too Long`);
+      this.getLength();
+      // alert and restart if it's too short
+    } else {
+      // return the user input if validated
+      return length;
+    }
+  },
+};
 
 // Function for getting a random element from an array
 function getRandom(arr) {}
