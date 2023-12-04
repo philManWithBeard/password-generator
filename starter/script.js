@@ -131,7 +131,43 @@ const getPasswordOptions = {
 getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // Function to generate password with user input
-function generatePassword() {}
+generatePassword = () => {
+  // Get length from getPasswordOptions Object
+  const length = getPasswordOptions.getLength();
+
+  // Create an empty array to hold potential characters
+  const charArray = [];
+
+  // Put lowercase characters in the array if user selects them
+  if (getPasswordOptions.getLowercase()) {
+    charArray.push(...lowerCasedCharacters);
+  }
+
+  // Put uppercase characters in the array if user selects them
+  if (getPasswordOptions.getUppercase()) {
+    charArray.push(...upperCasedCharacters);
+  }
+
+  // Put numeric characters in the array if user selects them
+  if (getPasswordOptions.getNumeric()) {
+    charArray.push(...numericCharacters);
+  }
+
+  // Put special characters in the array if user selects them
+  if (getPasswordOptions.getSpecChar()) {
+    charArray.push(...specialCharacters);
+  }
+
+  // Create a string variable to hold the password
+  let password = "";
+
+  // Put a random character from charArray into the password string variable
+  for (let i = 0; i < length; i++) {
+    password += getRandom(charArray);
+  }
+
+  return password;
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
