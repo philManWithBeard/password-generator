@@ -162,6 +162,12 @@ generatePassword = () => {
     charArray.push(...specialCharacters);
   }
 
+  // Handle no characters selected
+  if (charArray === undefined) {
+    alert("No characters selected");
+    return;
+  }
+
   // Create a string variable to hold the password
   let password = "";
 
