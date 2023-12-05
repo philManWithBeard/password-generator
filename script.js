@@ -96,16 +96,16 @@ const getPasswordOptions = {
       "What length of password do you require? Choose between 8-128"
     );
     if (isNaN(length)) {
-      // alert and restart if it's not a number
+      // alert if it's not a number
       alert(`That Was Not a Number`);
     } else if (length === "") {
-      // alert and restart if there's no input
+      // alert if there's no input
       alert(`No input`);
     } else if (length < 8) {
-      // alert and restart if it's too short
+      // alert if it's too short
       alert(`Password Length Too Short`);
     } else if (length > 128) {
-      // alert and restart if it's too long
+      // alert if it's too long
       alert(`Password Length Too Long`);
     } else {
       // return the user input if validated
@@ -134,7 +134,7 @@ generatePassword = () => {
   // Get length from getPasswordOptions Object
   const length = getPasswordOptions.getLength();
 
-  //return undefined if undefined
+  //return undefined if length is undefined
   if (length === undefined) {
     return;
   }
